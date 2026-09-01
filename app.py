@@ -1,5 +1,4 @@
 import streamlit as st
-import os
 from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
@@ -35,7 +34,7 @@ index.add(
 )
 
 # Gemini
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
 gemini = genai.GenerativeModel(
     "gemini-2.5-flash"
